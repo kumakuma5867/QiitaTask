@@ -12,6 +12,8 @@ class Task(models.Model):
     detail = models.TextField('Detail', max_length=500, null=True, blank=True)
     deadline = models.DateField('Deadline', null=True, blank=True)
     status = models.IntegerField('Status', choices=TaskStatus.choices, default=TaskStatus.ADDED)
+    created_at = models.DateTimeField('Create date time', auto_now_add=True, null=True)
+    updated_at = models.DateTimeField('Update date time', auto_now=True, null=True)
 
     def __str__(self):
         return self.title
